@@ -17,6 +17,11 @@ def custom_rows_and_cols_checkerboard(x, y):
     col = int(y/2) # the loop in checkerboard.html will make 2 boxes for every integer
     return render_template('checkerboard.html', row = x, col = col)
 
+@app.route('/<int:x>/<int:y>/<string:color1>') # route for rows, cols, and colors determined by user
+def custom_one_color_checkerboard(x, y, color1):
+    col = int(y/2) # the loop in checkerboard.html will make 2 boxes for every integer
+
+    return render_template('checkerboard.html', row = x, col = col, color1 = color1, color2 = "black")
 @app.route('/<int:x>/<int:y>/<string:color1>/<string:color2>') # route for rows, cols, and colors determined by user
 def custom_colors_checkerboard(x, y, color1, color2):
     col = int(y/2) # the loop in checkerboard.html will make 2 boxes for every integer
